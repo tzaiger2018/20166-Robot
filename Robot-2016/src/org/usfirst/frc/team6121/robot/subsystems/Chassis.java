@@ -12,6 +12,8 @@
 package org.usfirst.frc.team6121.robot.subsystems;
 
 
+import org.usfirst.frc.team6121.robot.OI;
+import org.usfirst.frc.team6121.robot.Robot;
 import org.usfirst.frc.team6121.robot.RobotMap;
 import org.usfirst.frc.team6121.robot.commands.ArcadeDrive;
 
@@ -19,6 +21,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
@@ -44,6 +47,8 @@ public class Chassis extends Subsystem {
 	double rcw = 0;
 	double left = 0;
 	double right = 0;
+	double lCal = 1;
+	double rCal = 1;
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -89,6 +94,9 @@ public void arcadeDrive(Joystick stick)   {
     			right = -(RobotMap.rightCalc(-fwd, rcw, a, b));
     		}  
     	}
+
+		left = Robot.oi.leftCal * left;
+		right = Robot.oi.rightCal * right;
     	
     	robotDrive4X.setLeftRightMotorOutputs(left,right);
     	
