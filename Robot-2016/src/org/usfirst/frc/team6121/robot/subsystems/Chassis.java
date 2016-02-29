@@ -84,19 +84,19 @@ public void arcadeDrive(Joystick stick)   {
     	//quadrant 4
     	else  {
     		if (rcw>=0)   {
-    			left = -(RobotMap.rightCalc(-fwd, -rcw, a, b));
-    			right = -(RobotMap.leftCalc(-fwd, -rcw, a, b));
+    			left = -(RobotMap.rightCalc(-fwd, rcw, a, b));
+    			right = -(RobotMap.leftCalc(-fwd, rcw, a, b));
     		}
     	
     	//quadrant 3
     		else   {
-    			left = -(RobotMap.leftCalc(-fwd, rcw, a, b));
-    			right = -(RobotMap.rightCalc(-fwd, rcw, a, b));
+    			left = -(RobotMap.leftCalc(-fwd, -rcw, a, b));
+    			right = -(RobotMap.rightCalc(-fwd, -rcw, a, b));
     		}  
     	}
 
-		left = Robot.oi.leftCal * left;
-		right = Robot.oi.rightCal * right;
+		//left = Robot.oi.leftCal * left;
+		//right = Robot.oi.rightCal * right;
     	
     	robotDrive4X.setLeftRightMotorOutputs(left,right);
     	
@@ -104,7 +104,14 @@ public void arcadeDrive(Joystick stick)   {
     
     public void driveStraight(double speed)   {
     	robotDrive4X.setLeftRightMotorOutputs(speed, speed);
+    
     }
+    
+    public void driveTurn(double left, double right) {
+    	robotDrive4X.setLeftRightMotorOutputs(left, right);
+    }
+		
+	
 
 }
 

@@ -47,8 +47,7 @@ public class Arm extends Subsystem {
     }
     
     public void moveArmUp()   {
-    	motor.set(0.4);
-    	
+    	motor.set(0.6);
     }
     
     public void moveArmDown()   {
@@ -56,11 +55,11 @@ public class Arm extends Subsystem {
     }
     
     public void armOpen() {
-    	openMotor.set(1);
+    	openMotor.set(0.3);
     }
     
     public void armClose() {
-    	openMotor.set(-1);
+    	openMotor.set(-0.3);
     }
     
     public void stopArm()   {
