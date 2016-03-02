@@ -46,20 +46,20 @@ public class Arm extends Subsystem {
         // setDefaultCommand(new MySpecialCommand());
     }
     
-    public void moveArmUp()   {
-    	motor.set(0.6);
+    public void moveArmUp(double speed)   {
+    	motor.set(speed);
     }
     
-    public void moveArmDown()   {
-    	motor.set(-0.3);
+    public void moveArmDown(double speed)   {
+    	motor.set(speed);
     }
     
-    public void armOpen() {
-    	openMotor.set(0.3);
+    public void armOpen(double speed) {
+    	openMotor.set(speed);
     }
     
-    public void armClose() {
-    	openMotor.set(-0.3);
+    public void armClose(double speed) {
+    	openMotor.set(speed);
     }
     
     public void stopArm()   {
